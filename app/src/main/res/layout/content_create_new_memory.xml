@@ -15,14 +15,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:dropDownSelector=""
-        style="@android:style/Widget.Holo.Spinner"
         android:hint="Date" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Spinner>
 
     <Button
         android:layout_width="wrap_content"
@@ -38,7 +31,10 @@
         android:text="Upload video(s)"
         android:id="@+id/upload_video_button"
         android:layout_above="@+id/submit_to_jar_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/upload_photo_button"
+        android:layout_alignStart="@+id/upload_photo_button"
+        android:layout_alignRight="@+id/upload_photo_button"
+        android:layout_alignEnd="@+id/upload_photo_button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -46,7 +42,10 @@
         android:text="Submit to jar"
         android:id="@+id/submit_to_jar_button"
         android:layout_above="@+id/create_new_memory_back_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/upload_video_button"
+        android:layout_alignStart="@+id/upload_video_button"
+        android:layout_alignRight="@+id/upload_video_button"
+        android:layout_alignEnd="@+id/upload_video_button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -54,6 +53,9 @@
         android:text="Back"
         android:id="@+id/create_new_memory_back_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/submit_to_jar_button"
+        android:layout_alignEnd="@+id/submit_to_jar_button"
+        android:layout_alignLeft="@+id/submit_to_jar_button"
+        android:layout_alignStart="@+id/submit_to_jar_button" />
 
 </RelativeLayout>

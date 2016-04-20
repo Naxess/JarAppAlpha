@@ -2,4 +2,16 @@
     <string name="app_name">JarAppAlpha</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_create_new_memory">CreateNewMemory</string>
+    <string name="title_activity_create_new_jar">CreateNewJar</string>
+    <string name="title_activity_jar_detail">JarDetail</string>
+
+    <string name="twitter_consumer_key">7EMLoptD1ul3o79nFuKDAor0i</string>
+    <string name="twitter_consumer_secret">ZKN5cV7sTJ3TXplCGmgVWikQzCf4UfuWC3DqG0G1QApMFkjac0</string>
+    <string name="owner_id">697594642553053184</string>
+
+    <string name="keystore_password_facebook">HfCVTMDGOOiz5z1HEnpRpF1WLeM=</string>
+    <string name="facebook_app_id">1757368224499708</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.com220.sli.jarappalpha.MainActivity"
+    tools:context=".HomePage"
     tools:showIn="@layout/activity_main">
 
     <TextView
@@ -23,9 +23,50 @@
         android:layout_height="wrap_content"
         android:text="Create New Memory"
         android:id="@+id/create_new_memory_button"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="67dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create New Jar"
+        android:id="@+id/create_new_jar_button"
+        android:layout_below="@+id/create_new_memory_button"
+        android:layout_alignLeft="@+id/create_new_memory_button"
+        android:layout_alignStart="@+id/create_new_memory_button"
+        android:layout_toStartOf="@+id/share_facebook_button"
+        android:layout_alignRight="@+id/create_new_memory_button"
+        android:layout_alignEnd="@+id/create_new_memory_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jar Detail"
+        android:id="@+id/jar_detail_button"
+        android:layout_below="@+id/create_new_jar_button"
+        android:layout_alignLeft="@+id/create_new_jar_button"
+        android:layout_alignStart="@+id/create_new_jar_button"
+        android:layout_alignRight="@+id/create_new_jar_button"
+        android:layout_alignEnd="@+id/create_new_jar_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/share_twitter_button"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="Twitter"
+        android:layout_alignLeft="@+id/share_facebook_button"
+        android:layout_alignStart="@+id/share_facebook_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/share_facebook_button"
+        android:layout_below="@+id/share_twitter_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="Facebook" />
 
 </RelativeLayout>

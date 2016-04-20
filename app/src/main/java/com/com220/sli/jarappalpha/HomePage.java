@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -11,9 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity
+public class HomePage extends AppCompatActivity
 {
     Button createNewMemoryButton;
+    Button createNewJarButton;
+    Button jarDetailButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,45 @@ public class MainActivity extends AppCompatActivity
                 startActivity(createNewMemoryPage);
             }
         });
+
+        createNewJarButton = (Button)findViewById(R.id.create_new_jar_button);
+        createNewJarButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view)
+            {
+                Intent createNewMemoryPage = new Intent(getApplicationContext(),CreateNewJar.class);
+                startActivity(createNewMemoryPage);
+            }
+        });
+
+        jarDetailButton = (Button)findViewById(R.id.jar_detail_button);
+        jarDetailButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent createNewMemoryPage = new Intent(getApplicationContext(), JarDetail.class);
+                startActivity(createNewMemoryPage);
+            }
+        });
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        if(savedInstanceState == null)
+        {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new MainFragment())
+                    .commit();
+        }
+    }
+
+    public static final String SOCIAL_NETWORK_TAG = "SocialIntegrationMain.SOCIAL_NETWORK";
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode,resultCode,data);
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(SOCIAL_NETWORK_TAG);
+        if(fragment != null)
+        {
+            fragment.onActivityResult(requestCode,resultCode,data);
+        }
     }
 
     @Override
