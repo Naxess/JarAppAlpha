@@ -59,6 +59,7 @@ public class HomePage extends AppCompatActivity
             }
         });
 
+        /*
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(savedInstanceState == null)
@@ -67,6 +68,7 @@ public class HomePage extends AppCompatActivity
                     .add(R.id.container, new MainFragment())
                     .commit();
         }
+        */
     }
 
     public static final String SOCIAL_NETWORK_TAG = "SocialIntegrationMain.SOCIAL_NETWORK";
