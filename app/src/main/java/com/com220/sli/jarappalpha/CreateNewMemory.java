@@ -2,6 +2,7 @@ package com.com220.sli.jarappalpha;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,10 +16,17 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+/*
+DEVELOPER.ANDROID.com/training/sharing/send.html
+ */
+
 public class CreateNewMemory extends AppCompatActivity
 {
     Button back;
     Button date;
+    Button uploadPhotos;
+    Button uploadVideos;
+    Button submit;
 
     int year, month, day;
     static final int DIALOG_ID = 0;
@@ -42,6 +50,8 @@ public class CreateNewMemory extends AppCompatActivity
             }
         });
 
+        showDialogOnClick();
+
         back = (Button)findViewById(R.id.create_new_memory_back_button);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,12 +59,40 @@ public class CreateNewMemory extends AppCompatActivity
                 finish();
             }
         });
-        showDialogOnClick();
 
         final Calendar cal = Calendar.getInstance();
         year = cal.get(Calendar.YEAR);
         month = cal.get(Calendar.MONTH);
         day = cal.get(Calendar.DAY_OF_MONTH);
+
+        uploadPhotos = (Button)findViewById(R.id.upload_photo_button);
+        uploadVideos = (Button)findViewById(R.id.upload_video_button);
+
+        uploadPhotos.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("image/jpeg");
+                startActivity(sendIntent);
+            }
+        });
+
+        uploadVideos.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("audio/mpg");
+                startActivity(sendIntent);
+            }
+        });
     }
 
     public void showDialogOnClick()

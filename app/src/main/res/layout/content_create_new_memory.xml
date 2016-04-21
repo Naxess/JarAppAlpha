@@ -59,7 +59,7 @@
         android:layout_height="150dp"
         android:id="@+id/editText"
         android:hint="Type description here."
-        android:background="#999999"
+        android:background="#C8C8C8"
         android:alpha="0.50"
         android:gravity="top"
         android:padding="5dip"
