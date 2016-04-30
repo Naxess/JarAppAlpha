@@ -10,17 +10,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ConfirmPage extends AppCompatActivity implements View.OnClickListener
 {
     private static final int RESULT_LOAD_IMAGE = 1;
     ImageView uploadImage;
-    ImageView downloadedImage;
+    //ImageView downloadedImage;
     Button uploadButton;
-    Button downloadButton;
+    //Button downloadButton;
     EditText nameImage;
-    EditText findImage;
+    //EditText findImage;
     Uri selectedImage = null;
+    TextView dateText;
+
+    EditText description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,16 +35,31 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
         setSupportActionBar(toolbar);
 
         uploadImage = (ImageView)findViewById(R.id.image_to_upload);
-        downloadedImage = (ImageView)findViewById(R.id.downloaded_image);
+        //downloadedImage = (ImageView)findViewById(R.id.downloaded_image);
         uploadButton = (Button)findViewById(R.id.upload_image_button);
-        downloadButton = (Button)findViewById(R.id.download_image_button);
+        //downloadButton = (Button)findViewById(R.id.download_image_button);
         nameImage = (EditText)findViewById(R.id.image_name);
-        findImage = (EditText)findViewById(R.id.image_name2);
+        //findImage = (EditText)findViewById(R.id.image_name2);
 
         uploadImage.setOnClickListener(this);
         uploadButton.setOnClickListener(this);
-        downloadButton.setOnClickListener(this);
+        //downloadButton.setOnClickListener(this);
 
+        description = (EditText)findViewById(R.id.editText2);
+        dateText = (TextView)findViewById(R.id.date_selected);
+
+        String dateString = getIntent().getStringExtra("date");
+        String desc = getIntent().getStringExtra("description");
+
+        try
+        {
+            dateText.setText(dateString);
+            description.setText(desc);
+        }
+        catch(NullPointerException e)
+        {
+            description.setText("NullPointerException has occurred.");
+        }
     }
 
     @Override
@@ -63,15 +82,21 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
                     uploadButton.setText("null");
                     break;
                 }
+                else
+                {
+                    uploadButton.setText("Select Image");
+                }
                 sendIntent.putExtra(Intent.EXTRA_STREAM, selectedImage);
                 sendIntent.setType("image/jpeg");
                 startActivity(sendIntent);
                 break;
             }
+            /*
             case R.id.download_image_button:
             {
                 break;
             }
+            */
         }
     }
 

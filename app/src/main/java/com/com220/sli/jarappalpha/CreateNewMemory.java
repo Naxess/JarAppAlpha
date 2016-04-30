@@ -5,16 +5,14 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,6 +29,7 @@ public class CreateNewMemory extends AppCompatActivity
     Button uploadPhotos;
     Button uploadVideos;
     Button backToDetails;
+    EditText description;
 
     TextView dateText;
 
@@ -47,20 +46,12 @@ public class CreateNewMemory extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         showDialogOnClick();
 
         dateText = (TextView)findViewById(R.id.date_edittext);
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        dateText.setText(dateFormat.getDateInstance().format(new Date()));
+        dateText.setText(dateFormat.format(new Date())); // format: "04/30/2016"
+        //dateText.setText(dateFormat.getDateInstance().format(new Date())); //Alternative format shows the date as "Apr 30, 2016"
 
         backToDetails = (Button)findViewById(R.id.submit_to_jar_button);
         backToDetails.setOnClickListener(new View.OnClickListener() {
@@ -84,19 +75,26 @@ public class CreateNewMemory extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                ///*
+                /*
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_STREAM, "");
                 sendIntent.setType("image/jpeg");
                 startActivity(sendIntent);
-                //*/
+                */
 
                 /* Alternative method (https://www.youtube.com/watch?v=8nDKwtTcOUg)
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 */
 
+
+
+                Intent openConfirmPage = new Intent(getApplicationContext(), ConfirmPage.class);
+                openConfirmPage.putExtra("date", dateText.getText().toString());
+                description = (EditText)findViewById(R.id.editText);
+                openConfirmPage.putExtra("description", description.getText().toString());
+                startActivity(openConfirmPage);
             }
         });
 
@@ -143,9 +141,11 @@ public class CreateNewMemory extends AppCompatActivity
         public void onDateSet(DatePicker view, int yearOf, int monthOfYear, int dayOfMonth)
         {
             year = yearOf;
-            month = monthOfYear;
+            month = monthOfYear + 1;
             day = dayOfMonth;
-            Toast.makeText(CreateNewMemory.this, year + "/" + month + "/" + day, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(CreateNewMemory.this, month + "/" + day + "/" + year, Toast.LENGTH_SHORT).show();
+            dateText = (TextView)findViewById(R.id.date_edittext);
+            dateText.setText(month + "/" + day + "/" + year);
         }
     };
 

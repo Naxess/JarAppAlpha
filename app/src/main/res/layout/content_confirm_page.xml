@@ -19,39 +19,47 @@
 
         <ImageView
             android:id="@+id/image_to_upload"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="match_parent"
+            android:layout_height="255dp"
             android:src="@drawable/upload_image_button"
             android:layout_gravity="center_horizontal"/>
 
         <EditText
             android:id="@+id/image_name"
+            android:hint="Click here to rename file."
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/date_selected"
+            android:hint="Date"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:id="@+id/editText2"
+            android:hint="Type description here."
+            android:background="#C8C8C8"
+            android:alpha="0.50"
+            android:gravity="top"
+            android:padding="5dip"
+            android:layout_above="@+id/upload_photo_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/date_button" />
 
         <Button
             android:id="@+id/upload_image_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Image" />
+            android:text="Upload Memory" />
 
-        <ImageView
-            android:id="@+id/downloaded_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/upload_image_button"
-            android:layout_gravity="center_horizontal"/>
-
-        <EditText
-            android:id="@+id/image_name2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/download_image_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Download Image" />
     </LinearLayout>
 
 </ScrollView>
