@@ -17,6 +17,9 @@ public class HomePage extends AppCompatActivity
     Button createNewMemoryButton;
     Button createNewJarButton;
     Button jarDetailButton;
+
+    Button confirmPageButton; //DRIVER CODE
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,17 @@ public class HomePage extends AppCompatActivity
             public void onClick(View view) {
                 Intent createNewMemoryPage = new Intent(getApplicationContext(), JarDetail.class);
                 startActivity(createNewMemoryPage);
+            }
+        });
+
+        confirmPageButton = (Button)findViewById(R.id.confirm_page_button);
+        confirmPageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent confirmPage = new Intent(getApplicationContext(), ConfirmPage.class);
+                startActivity(confirmPage);
             }
         });
 

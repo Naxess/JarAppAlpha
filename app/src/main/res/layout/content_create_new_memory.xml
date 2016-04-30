@@ -13,6 +13,17 @@
     tools:context="com.com220.sli.jarappalpha.CreateNewMemory"
     tools:showIn="@layout/activity_create_new_memory">
 
+    <TextView
+        android:id="@+id/date_edittext"
+        android:hint="Current Date"
+        android:textSize="20dp"
+        android:textColor="#ff0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/date_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +46,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit to jar"
+        android:text="Back to Details"
         android:id="@+id/submit_to_jar_button"
         android:layout_above="@+id/create_new_memory_back_button"
         android:layout_alignLeft="@+id/upload_video_button"
@@ -75,10 +86,8 @@
         android:layout_height="wrap_content"
         android:text="Select Date"
         android:id="@+id/date_button"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/upload_photo_button"
-        android:layout_alignStart="@+id/upload_photo_button"
-        android:layout_alignRight="@+id/upload_photo_button"
-        android:layout_alignEnd="@+id/upload_photo_button" />
+        android:layout_alignTop="@+id/date_edittext"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
 
 </RelativeLayout>

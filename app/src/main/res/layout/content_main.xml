@@ -69,4 +69,12 @@
         android:layout_alignParentEnd="true"
         android:text="Facebook" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm_page_button"
+        android:text="Confirm Page"
+        android:layout_below="@+id/jar_detail_button"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
