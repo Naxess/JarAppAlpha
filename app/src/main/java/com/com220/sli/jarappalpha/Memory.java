@@ -8,6 +8,7 @@ public class Memory
     private String memoryCreationDate;
     private String memoryUnlockDate;
     private String memoryDescription;
+    private String memoryAddress;
     //private Location memoryLocation;  //REMOVED FROM APP.
 
     private int id;
@@ -19,12 +20,17 @@ public class Memory
     {
 
     }
-    public Memory(String memoryName, String memoryCreationDate, String memoryUnlockDate, String memoryDescription)
+    public Memory(int id, String name, String address)
     {
+        /*
         this.memoryName = memoryName;
         this.memoryCreationDate = memoryCreationDate;
         this.memoryUnlockDate = memoryUnlockDate;
         this.memoryDescription = memoryDescription;
+        */
+        this.id = id;
+        this.memoryName = name;
+        this.memoryAddress = address;
     }
 
     //GET METHODS
@@ -43,6 +49,10 @@ public class Memory
     public String getMemoryDescription()
     {
         return memoryDescription;
+    }
+    public String getMemoryAddress()
+    {
+        return memoryAddress;
     }
     public int getId()
     {
@@ -69,6 +79,10 @@ public class Memory
     void setMemoryDescription(String newMemoryDescription)
     {
         this.memoryName = newMemoryDescription;
+    }
+    void setMemoryAddress(String newMemoryAddress)
+    {
+        this.memoryAddress = newMemoryAddress;
     }
     void setId(int newId)
     {
