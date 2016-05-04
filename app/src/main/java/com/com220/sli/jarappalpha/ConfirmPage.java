@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class ConfirmPage extends AppCompatActivity implements View.OnClickListener
 {
     private static final int RESULT_LOAD_IMAGE = 1;
+    public static final int CAMERA_REQUEST = 10;
     ImageView uploadImage;
     //ImageView downloadedImage;
     Button uploadButton;
@@ -23,6 +24,7 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
     //EditText findImage;
     Uri selectedImage = null;
     TextView dateText;
+    Button btnTakePhoto;
 
     EditText description;
 
@@ -48,6 +50,8 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
         uploadImage.setOnClickListener(this);
         uploadButton.setOnClickListener(this);
         //downloadButton.setOnClickListener(this);
+
+        btnTakePhoto = (Button)findViewById(R.id.take_photo);
 
         description = (EditText)findViewById(R.id.editText2);
         dateText = (TextView)findViewById(R.id.date_selected);
@@ -96,6 +100,13 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
                 break;
             }
             /*
+            case R.id.take_photo:
+            {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, 10);
+            }
+            */
+            /*
             case R.id.download_image_button:
             {
                 break;
@@ -113,5 +124,16 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
             selectedImage = data.getData();
             uploadImage.setImageURI(selectedImage);
         }
+        else if(requestCode == CAMERA_REQUEST && resultCode == RESULT_OK && data != null)
+        {
+            selectedImage = data.getData();
+            uploadImage.setImageURI(selectedImage);
+        }
+    }
+
+    public void btnTakePhotoClicked(View v)
+    {
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
 }
