@@ -26,6 +26,10 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
 
     EditText description;
 
+    Memory mem = new Memory(1, "name1", "address1");
+    MemoryManager mb = new MemoryManager(this);
+    //mb.addMemory(mem);    //ISSUES GETTING THE DATABASE TO WORK
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -79,12 +83,12 @@ public class ConfirmPage extends AppCompatActivity implements View.OnClickListen
                 sendIntent.setAction(Intent.ACTION_SEND);
                 if(selectedImage == null)
                 {
-                    uploadButton.setText("null");
+                    uploadButton.setText("No image selected.");
                     break;
                 }
                 else
                 {
-                    uploadButton.setText("Select Image");
+                    uploadButton.setText("Upload Memory");
                 }
                 sendIntent.putExtra(Intent.EXTRA_STREAM, selectedImage);
                 sendIntent.setType("image/jpeg");

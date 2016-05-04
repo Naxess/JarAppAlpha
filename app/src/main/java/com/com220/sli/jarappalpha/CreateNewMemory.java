@@ -88,8 +88,6 @@ public class CreateNewMemory extends AppCompatActivity
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 */
 
-
-
                 Intent openConfirmPage = new Intent(getApplicationContext(), ConfirmPage.class);
                 openConfirmPage.putExtra("date", dateText.getText().toString());
                 description = (EditText)findViewById(R.id.editText);
